@@ -9,6 +9,7 @@ const getPreziList = () => {
 }
 /**
  * Fonction a executer lorsque le DOM est chargé
+ * @returns {void}
  */
 const onLoad = () => {
     //On récupère la liste des prézis
@@ -18,7 +19,8 @@ const onLoad = () => {
 }
 /**
  * Fonction qui affiche la liste des prézis
- * @param {*} preziList 
+ * @param {Array} preziList 
+ * @returns {void}
  */
 const displayPreziList = () => {
     //On vide la liste des prézis
@@ -46,6 +48,11 @@ const displayPreziList = () => {
         document.getElementById("preziListUl").appendChild(li)
     })
 }
+/**
+ * Fonction qui supprime la prézis à l'index passé en paramètre
+ * @param {integer} index
+ * @returns {void}
+ */
 const deletePrezi = (index) => {
     //On supprime le prézis de la liste
     preziList.splice(index, 1)
@@ -54,6 +61,10 @@ const deletePrezi = (index) => {
     //On affiche la liste des prézis
     displayPreziList()
 }
+/**
+ * Fonction qui ajoute un prézi à la liste
+ * @returns {void}
+ */
 const addPrezi = () => {
     //On récupère le titre et l'url de la nouvelle prézis
     const title = preziTitle.value
@@ -70,6 +81,7 @@ const addPrezi = () => {
     //On affiche la liste des prézis
     displayPreziList()
 }
+//On ajoute le click sur le bouton d'ajout de prézis
 addPreziButton.addEventListener("click", addPrezi)
-
+//On charge le contenu du localStorage au démarrage de l'application
 onLoad()
